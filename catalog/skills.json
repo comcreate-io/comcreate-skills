@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "name": "design-product-flows",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "product-design",
+      "path": "skills/design-product-flows",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "original",
+        "summary": "ComCreate-authored workflow distilled from reviewed product-flow research."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": [],
+        "tools": []
+      },
+      "manualOnly": false
+    },
+    {
+      "name": "self-improvement-loop",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "agent-operations",
+      "path": "skills/self-improvement-loop",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "clean-room-rewrite",
+        "summary": "Portable rewrite of an internally developed evidence-gated improvement process."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": [],
+        "tools": ["sanitized-evidence-source"]
+      },
+      "manualOnly": true
+    },
+    {
+      "name": "pr-review-sweep",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "engineering-operations",
+      "path": "skills/pr-review-sweep",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "clean-room-rewrite",
+        "summary": "Portable rewrite of an internally developed bounded pull request review loop."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": ["git"],
+        "tools": ["repository-provider"]
+      },
+      "manualOnly": true
+    },
+    {
+      "name": "ci-triage-sweep",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "engineering-operations",
+      "path": "skills/ci-triage-sweep",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "clean-room-rewrite",
+        "summary": "Portable rewrite of an internally developed bounded CI triage loop."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": ["git"],
+        "tools": ["ci-provider", "repository-provider"]
+      },
+      "manualOnly": true
+    },
+    {
+      "name": "docs-gardener",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "documentation",
+      "path": "skills/docs-gardener",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "clean-room-rewrite",
+        "summary": "Portable rewrite of an internally developed evidence-based documentation audit loop."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": [],
+        "tools": ["filesystem-search"]
+      },
+      "manualOnly": true
+    },
+    {
+      "name": "no-ai-slop",
+      "version": "0.0.0",
+      "status": "incubator",
+      "category": "writing",
+      "path": null,
+      "maintainers": ["@cartermccann"],
+      "license": "UNRESOLVED",
+      "provenance": {
+        "kind": "unresolved",
+        "summary": "Useful local skill awaiting authorship and source-history confirmation."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": [],
+        "tools": []
+      },
+      "manualOnly": false
+    },
+    {
+      "name": "agent-context-bridge",
+      "version": "0.0.0",
+      "status": "incubator",
+      "category": "agent-operations",
+      "path": null,
+      "maintainers": ["@cartermccann"],
+      "license": "UNRESOLVED",
+      "provenance": {
+        "kind": "planned-clean-room-rewrite",
+        "summary": "Future portable context-index bridge with personal memory layouts excluded."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": [],
+        "tools": []
+      },
+      "manualOnly": false
+    }
+  ]
+}

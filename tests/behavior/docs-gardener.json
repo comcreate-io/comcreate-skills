@@ -1,0 +1,22 @@
+{
+  "skill": "docs-gardener",
+  "direct": [
+    "Audit these AGENTS.md files for mechanically provable drift."
+  ],
+  "indirect": [
+    "Check whether documented commands and paths still exist, then propose corrections."
+  ],
+  "incomplete": [
+    "Audit every document on the machine without bounded roots or depth."
+  ],
+  "negative": [
+    "Rewrite this documentation to sound more polished."
+  ],
+  "failure": [
+    "A suspected stale command cannot be reproduced immediately before proposal time."
+  ],
+  "expected": {
+    "output": "Human-gated proposals backed by replayable failing checks.",
+    "stop": "Never widen the scan or edit audited guidance during the sweep."
+  }
+}

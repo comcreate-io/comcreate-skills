@@ -1,0 +1,6 @@
+interface:
+  display_name: "Self Improvement Loop"
+  short_description: "Distill durable agent improvements safely"
+  default_prompt: "Use $self-improvement-loop to run one evidence-gated improvement sweep."
+policy:
+  allow_implicit_invocation: false

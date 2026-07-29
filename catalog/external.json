@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "name": "frontend-design",
+      "category": "frontend-design",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "license": "NOASSERTION",
+      "distribution": "link-only",
+      "notes": "Useful upstream skill; not redistributed by this repository."
+    },
+    {
+      "name": "bmad-workflows",
+      "category": "product-delivery",
+      "sourceUrl": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "license": "NOASSERTION",
+      "distribution": "link-only",
+      "notes": "Treat as a coupled upstream system rather than copying individual prompts."
+    },
+    {
+      "name": "openai-skills",
+      "category": "reference-catalog",
+      "sourceUrl": "https://github.com/openai/skills",
+      "license": "NOASSERTION",
+      "distribution": "link-only",
+      "notes": "Official upstream examples and curated skills; install from upstream."
+    },
+    {
+      "name": "vercel-agent-skills",
+      "category": "web-development",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills",
+      "license": "NOASSERTION",
+      "distribution": "link-only",
+      "notes": "Vendor-maintained web development skills; install from upstream."
+    }
+  ]
+}

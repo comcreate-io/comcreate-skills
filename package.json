@@ -1,0 +1,27 @@
+{
+  "name": "comcreate-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable, evidence-backed Agent Skills for Claude Code and Codex.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comcreate-io/comcreate-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/comcreate-io/comcreate-skills/issues"
+  },
+  "bin": {
+    "comcreate-skills": "./bin/comcreate-skills.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "inventory": "node ./bin/comcreate-skills.mjs inventory",
+    "list": "node ./bin/comcreate-skills.mjs list",
+    "validate": "node ./bin/comcreate-skills.mjs validate",
+    "test": "node --test"
+  },
+  "license": "Apache-2.0"
+}

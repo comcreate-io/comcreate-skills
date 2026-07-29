@@ -1,0 +1,22 @@
+{
+  "skill": "pr-review-sweep",
+  "direct": [
+    "Run one dry PR review sweep using this repository configuration."
+  ],
+  "indirect": [
+    "Review the unreviewed pull requests across these repositories without creating comment churn."
+  ],
+  "incomplete": [
+    "Review our pull requests, but no repository scope or state location is provided."
+  ],
+  "negative": [
+    "Merge this already-approved pull request."
+  ],
+  "failure": [
+    "The marked prior comment cannot be resolved to a stable comment ID."
+  ],
+  "expected": {
+    "output": "Bounded correctness, security, or material edge-case findings.",
+    "stop": "Never merge, approve, push, or edit an arbitrary latest comment."
+  }
+}

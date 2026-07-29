@@ -1,0 +1,11 @@
+{
+  "name": "core",
+  "description": "Cleared, portable skills validated for Codex and Claude Code.",
+  "skills": [
+    "design-product-flows",
+    "self-improvement-loop",
+    "pr-review-sweep",
+    "ci-triage-sweep",
+    "docs-gardener"
+  ]
+}

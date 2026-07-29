@@ -1,0 +1,22 @@
+{
+  "skill": "design-product-flows",
+  "direct": [
+    "Use design-product-flows to redesign this onboarding sequence."
+  ],
+  "indirect": [
+    "Our paywall appears before users understand the product. Map a better lifecycle flow."
+  ],
+  "incomplete": [
+    "Improve our activation flow without an audience, baseline, or value event."
+  ],
+  "negative": [
+    "Adjust the button color and typography on this finished screen."
+  ],
+  "failure": [
+    "Claim that a competitor's common pattern will increase conversion without evidence."
+  ],
+  "expected": {
+    "output": "A testable end-to-end flow hypothesis with metrics and guardrails.",
+    "stop": "Do not invent research, conversion data, or compliance constraints."
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Product Flows"
+  short_description: "Design evidence-backed product flows"
+  default_prompt: "Use $design-product-flows to audit this product flow and propose testable improvements."

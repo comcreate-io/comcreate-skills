@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T00:00:00.000Z",
+  "skills": [
+    {
+      "name": "example-skill",
+      "status": "incubator",
+      "runtimes": ["codex", "claude-code"],
+      "invocationCount": 4,
+      "lastUsed": "2026-07-28T00:00:00.000Z",
+      "projectCount": 2,
+      "variantCount": 1,
+      "contentHashes": ["sha256:example"]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "skill": "ci-triage-sweep",
+  "direct": [
+    "Perform one dry CI triage sweep over these repositories."
+  ],
+  "indirect": [
+    "Diagnose recent failed workflows and propose only mechanically proven fixes."
+  ],
+  "incomplete": [
+    "Fix CI everywhere without repository scope, write policy, or a state location."
+  ],
+  "negative": [
+    "Merge the open CI repair pull request."
+  ],
+  "failure": [
+    "A suspected fix cannot reproduce the failure locally."
+  ],
+  "expected": {
+    "output": "A bounded diagnosis and optional oracle-gated draft fix.",
+    "stop": "No oracle means diagnosis-only; never merge or force-push."
+  }
+}

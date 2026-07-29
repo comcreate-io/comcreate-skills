@@ -1,0 +1,22 @@
+{
+  "skill": "self-improvement-loop",
+  "direct": [
+    "Run one self-improvement sweep over this sanitized feedback extract."
+  ],
+  "indirect": [
+    "These corrections keep recurring. Determine whether any deserve a durable proposal."
+  ],
+  "incomplete": [
+    "Improve yourself, but no sanitized evidence source or proposal ledger is available."
+  ],
+  "negative": [
+    "Implement this ordinary feature request."
+  ],
+  "failure": [
+    "Apply every inferred preference directly to active global rules."
+  ],
+  "expected": {
+    "output": "At most three cited, inert proposals or a successful null result.",
+    "stop": "Never modify active guidance during a sweep."
+  }
+}

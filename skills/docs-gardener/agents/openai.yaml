@@ -1,0 +1,6 @@
+interface:
+  display_name: "Docs Gardener"
+  short_description: "Find mechanically provable docs drift"
+  default_prompt: "Use $docs-gardener to run one evidence-based documentation drift audit."
+policy:
+  allow_implicit_invocation: false
