@@ -14,10 +14,8 @@ jobs:
     runs-on: blacksmith-2vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm test
-      - run: npm run validate
+          python-version: "3.12"
+      - run: python3 -m unittest discover -s tests -v
+      - run: python3 ./bin/comcreate-skills validate

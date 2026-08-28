@@ -17,13 +17,13 @@ This repository is private while the library is dogfooded, but its tracked conte
 
 ## Use the library
 
-Requires Node.js 20 or newer. The CLI has no runtime dependencies.
+Requires Python 3.11 or newer. The CLI has no runtime dependencies.
 
 ```bash
-node ./bin/comcreate-skills.mjs validate
-node ./bin/comcreate-skills.mjs list
-node ./bin/comcreate-skills.mjs install --target both --profile core
-node ./bin/comcreate-skills.mjs status
+python3 ./bin/comcreate-skills validate
+python3 ./bin/comcreate-skills list
+python3 ./bin/comcreate-skills install --target both --profile core
+python3 ./bin/comcreate-skills status
 ```
 
 Installation copies managed skills by default:
@@ -40,7 +40,7 @@ The installer records only managed destinations in `${XDG_CONFIG_HOME:-~/.config
 `inventory` reads known user skill roots plus bounded project roots, deduplicates by canonical path and content hash, and emits metadata only:
 
 ```bash
-node ./bin/comcreate-skills.mjs inventory --out inventory.local.json
+python3 ./bin/comcreate-skills inventory --out inventory.local.json
 ```
 
 The report contains skill names, runtime labels, observed invocation/reference counts, last-used dates, project counts, status, variant counts, and content hashes. It never emits prompts, transcript text, session content, or absolute source paths.

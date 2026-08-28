@@ -12,7 +12,7 @@
 
 ## Verification
 
-- [ ] `npm test`
-- [ ] `npm run validate`
+- [ ] `python3 -m unittest discover -s tests -v`
+- [ ] `python3 ./bin/comcreate-skills validate`
 - [ ] Behavioral cases updated
 - [ ] No private or client-specific material
