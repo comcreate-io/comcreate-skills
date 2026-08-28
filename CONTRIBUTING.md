@@ -10,7 +10,7 @@ Use a pull request for every core-skill change. Branches use conventional prefix
 4. Add or update `agents/openai.yaml`.
 5. Register status, provenance, version, maintainers, runtimes, dependencies, and invocation policy in `catalog/skills.json`.
 6. Add direct, indirect, incomplete-input, negative-trigger, and failure-mode cases under `tests/behavior/`.
-7. Run `npm test` and `npm run validate`.
+7. Run `python3 -m unittest discover -s tests -v` and `python3 ./bin/comcreate-skills validate`.
 
 Every contribution must state:
 

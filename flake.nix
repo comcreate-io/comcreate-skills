@@ -20,7 +20,7 @@
         default = pkgs.mkShell {
           packages = [
             pkgs.git
-            pkgs.nodejs_24
+            pkgs.python312
           ];
         };
       });
