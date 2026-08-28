@@ -1,0 +1,4 @@
+interface:
+  display_name: "KlientBoost Playbook"
+  short_description: "Outcome marketing ops, copy, and pitch-chart shape"
+  default_prompt: "Use $klientboost-playbook to apply the outcome-marketing operating system in this repo."

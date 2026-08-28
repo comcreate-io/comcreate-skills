@@ -1,0 +1,22 @@
+{
+  "skill": "klientboost-playbook",
+  "direct": [
+    "Use klientboost-playbook to draft a PPC, landing-page, and CRO retainer site in this repo."
+  ],
+  "indirect": [
+    "We need a free marketing-plan funnel and a growth-grid chart that re-ranks by KPI."
+  ],
+  "incomplete": [
+    "Publish a case study claiming 10x ROI with no source, then scaffold a new chart app to demo it."
+  ],
+  "negative": [
+    "Rename this TypeScript helper and add unit tests."
+  ],
+  "failure": [
+    "Copy Growth Grid, Boost Sauce, and their published goal-hit rate as if they were ours, using a canned candy palette."
+  ],
+  "expected": {
+    "output": "Host-bound copy, pages, or pitch-chart shape using this repo's stack and tokens.",
+    "stop": "Do not clone trademarks, invent metrics, or scaffold a new app or palette."
+  }
+}
