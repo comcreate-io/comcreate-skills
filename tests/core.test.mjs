@@ -64,7 +64,7 @@ test("copy install adapts manual-only Claude skills and uninstalls safely", asyn
     profile: "core",
     mode: "copy",
   });
-  assert.equal(records.length, 10);
+  assert.equal(records.length, 12);
 
   const claudeLoop = await readFile(
     join(home, ".claude", "skills", "self-improvement-loop", "SKILL.md"),
@@ -80,11 +80,11 @@ test("copy install adapts manual-only Claude skills and uninstalls safely", asyn
 
   assert.deepEqual(
     (await status({ home })).map((entry) => entry.state),
-    Array(10).fill("current"),
+    Array(12).fill("current"),
   );
 
   const removed = await uninstall({ home, profile: "core" });
-  assert.equal(removed.length, 10);
+  assert.equal(removed.length, 12);
   assert.equal(
     await pathExists(
       join(home, ".agents", "skills", "design-product-flows"),

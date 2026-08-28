@@ -13,6 +13,7 @@ This repository is private while the library is dogfooded, but its tracked conte
 | `pr-review-sweep` | Run one bounded, high-signal pull request review sweep | Explicit only |
 | `ci-triage-sweep` | Diagnose CI failures and gate draft fixes behind a local oracle | Explicit only |
 | `docs-gardener` | Find mechanically provable documentation drift | Explicit only |
+| `klientboost-playbook` | Apply outcome-marketing ops, copy, and pitch-chart shape in the host project | Automatic or explicit |
 
 ## Use the library
 

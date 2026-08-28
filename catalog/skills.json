@@ -97,6 +97,25 @@
       "manualOnly": true
     },
     {
+      "name": "klientboost-playbook",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "marketing",
+      "path": "skills/klientboost-playbook",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "original",
+        "summary": "Portable operating playbook distilled from public KlientBoost site mechanics. Trademarks and published client metrics are excluded."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": [],
+        "tools": []
+      },
+      "manualOnly": false
+    },
+    {
       "name": "no-ai-slop",
       "version": "0.0.0",
       "status": "incubator",

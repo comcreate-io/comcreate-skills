@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added `klientboost-playbook`, a portable outcome-marketing operating playbook that binds copy, pages, and pitch-chart shape to the host project.
+
 ## 0.1.0 - 2026-07-29
 
 - Added five portable core skills.
