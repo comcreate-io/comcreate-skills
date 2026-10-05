@@ -283,7 +283,7 @@ def _extract_usage(home: str, since_days: int) -> dict[str, dict[str, Any]]:
             if metadata.st_mtime * 1000 < cutoff_ms or metadata.st_size > 25 * 1024 * 1024:
                 continue
 
-            with open(file["absolute"], encoding="utf-8") as handle:
+            with open(file["absolute"], encoding="utf-8", errors="replace") as handle:
                 contents = handle.read()
             lines = re.split(r"\r?\n", contents)
             project_id = (
@@ -361,7 +361,7 @@ def inventory_local(options: dict[str, Any] | None = None) -> dict[str, Any]:
         for directory in _skill_directories(root["path"]):
             skill_file = os.path.join(directory, "SKILL.md")
             try:
-                with open(skill_file, encoding="utf-8") as handle:
+                with open(skill_file, encoding="utf-8", errors="replace") as handle:
                     skill_text = handle.read()
             except OSError:
                 continue
