@@ -66,6 +66,66 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(report["skills"][0]["variantCount"], 1)
         self.assertNotIn(home, json.dumps(report))
 
+    def test_inventory_keeps_local_skills_and_usage_when_bytes_are_not_utf8(self) -> None:
+        home = make_temporary_home()
+        self.addCleanup(shutil.rmtree, home, True)
+
+        skill_dir = os.path.join(home, "portable-skills", "fixture-skill")
+        os.makedirs(skill_dir, exist_ok=True)
+        with open(os.path.join(skill_dir, "SKILL.md"), "wb") as handle:
+            handle.write(
+                b"---\n"
+                b"name: fixture-skill\n"
+                b"description: Exercise sanitized inventory behavior.\n"
+                b"---\n"
+                b"\n"
+                b"# Fixture\n"
+                b"\n"
+                b"bad \xff byte\n"
+            )
+
+        log_dir = os.path.join(home, ".codex", "sessions")
+        os.makedirs(log_dir, exist_ok=True)
+        with open(os.path.join(log_dir, "rollout.jsonl"), "wb") as handle:
+            handle.write(
+                b'{"type":"function_call","path":"/tmp/fixture-skill/SKILL.md"}\xff\n'
+            )
+
+        report = inventory_local(
+            {
+                "home": home,
+                "defaults": False,
+                "sinceDays": 30,
+                "roots": [
+                    {
+                        "runtime": "codex",
+                        "path": os.path.join(home, "portable-skills"),
+                    }
+                ],
+            }
+        )
+
+        self.assertEqual(report["schemaVersion"], 1)
+        self.assertEqual(len(report["skills"]), 1)
+        skill = report["skills"][0]
+        last_used = skill.pop("lastUsed")
+        self.assertEqual(
+            skill,
+            {
+                "name": "fixture-skill",
+                "status": "incubator",
+                "runtimes": ["codex"],
+                "invocationCount": 1,
+                "projectCount": 0,
+                "variantCount": 1,
+                "contentHashes": [
+                    "sha256:33f295ed03b7ca9d06e8f0700be1cde573bbc58d42592c6542beae80735faa19"
+                ],
+            },
+        )
+        self.assertRegex(last_used, r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$")
+        self.assertNotIn(home, json.dumps(report))
+
     def test_copy_install_adapts_manual_only_claude_skills_and_uninstalls_safely(
         self,
     ) -> None:
