@@ -16,11 +16,11 @@ cp "$REPO/static/logo-dark.svg"                    "$B/logo/wordmark-reverse.svg
 cp "$REPO/static/brand/comcreate-mark-ink.svg"     "$B/logo/mark-ink.svg"
 cp "$REPO/static/brand/comcreate-mark-reverse.svg" "$B/logo/mark-reverse.svg"
 cp "$REPO/static/fonts/Geist-Variable.woff2" "$REPO/static/fonts/GeistMono-Variable.woff2" \
-   "$REPO/static/fonts/GeistPixel-Circle.woff2" "$REPO/static/fonts/GeistPixel-Square.woff2" \
+   "$REPO/static/fonts/GeistPixel-Circle.woff2" \
    "$REPO/static/brand/fonts/GEIST-OFL-LICENSE.txt" "$B/fonts/"
 if command -v magick >/dev/null 2>&1; then
   for f in "$B"/logo/*.svg; do
-    magick -background none -density 600 "$f" -resize 2400x "$SKILL/assets/png/$(basename "${f%.svg}").png"
+    magick -background none -density 600 "$f" -resize 2400x -strip "$SKILL/assets/png/$(basename "${f%.svg}").png"
   done
 else
   echo "warning: ImageMagick not found; assets/png not re-exported" >&2

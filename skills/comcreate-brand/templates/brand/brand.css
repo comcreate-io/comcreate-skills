@@ -1,6 +1,6 @@
 /* ComCreate print brand layer.
-   Mirrors svelte/src/lib/styles/tokens.css on comcreate.io (the source of truth).
-   Run scripts/sync-from-site.sh after the site's tokens change.
+   Mirrors the comcreate.io design-system tokens (https://comcreate.io/design-system).
+   Maintainers run scripts/sync-from-site.sh after the site's tokens change.
    Built for Chrome headless print-to-PDF (Chrome 131+ for @page margin boxes). */
 
 @font-face {
@@ -16,11 +16,6 @@
 @font-face {
 	font-family: 'Geist Pixel';
 	src: url('fonts/GeistPixel-Circle.woff2') format('woff2');
-	font-weight: 400;
-}
-@font-face {
-	font-family: 'Geist Pixel Square';
-	src: url('fonts/GeistPixel-Square.woff2') format('woff2');
 	font-weight: 400;
 }
 
@@ -560,7 +555,7 @@ tfoot td {
 	margin-bottom: 0;
 }
 
-/* Decisive cobalt field. One per document section at most: the ask, the price, the decision. */
+/* Decisive cobalt field: the ask, the price, the decision. One per document, two at most. */
 .field-cobalt {
 	background: var(--accent);
 	color: #ffffff;

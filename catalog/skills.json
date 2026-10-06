@@ -119,7 +119,7 @@
       "name": "comcreate-brand",
       "version": "1.0.0",
       "status": "core",
-      "category": "writing",
+      "category": "marketing",
       "path": "skills/comcreate-brand",
       "maintainers": ["@cartermccann"],
       "license": "Apache-2.0 AND OFL-1.1",
@@ -129,7 +129,7 @@
       },
       "runtimes": ["codex", "claude-code"],
       "dependencies": {
-        "commands": ["chrome-or-chromium", "pdftoppm", "pdffonts", "python3"],
+        "commands": ["chromium", "pdftoppm", "pdffonts", "python3"],
         "tools": []
       },
       "manualOnly": false

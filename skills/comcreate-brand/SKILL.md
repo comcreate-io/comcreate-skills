@@ -5,10 +5,9 @@ description: ComCreate's own brand system for documents. Produces PDFs, proposal
 
 # ComCreate brand (documents)
 
-This skill packages the comcreate.io design system for print. The site's repository is the
-source of truth: `src/lib/styles/tokens.css` holds the tokens, `src/lib/data/designSystem.ts`
-holds the asset catalog and usage rules, and https://comcreate.io/design-system is the
-visual reference that the print layout is modeled on.
+This skill packages the comcreate.io design system for print. The public reference is
+https://comcreate.io/design-system: its tokens, type roles and usage rules are what this
+skill mirrors, and its layout is what the print pages are modeled on.
 
 All script paths below are relative to this skill's directory.
 
@@ -43,8 +42,8 @@ the PDF still renders, but you must say the inspection step was skipped.
 
 - **Paper first, dark acts.** Content pages use warm paper. The cover and closing page are
   blue-black sheets.
-- **Cobalt is decisive, not decorative.** Use it for eyebrows, tags, links and one cobalt
-  field per document. Never tint rules, icons or backgrounds with it.
+- **Cobalt is decisive, not decorative.** Use it for eyebrows, tags, links and the cobalt
+  field (one per document, two at most). Never tint rules, icons or backgrounds with it.
 - **Type roles.** Geist for reading, Geist Mono for labels and metadata, and Geist Pixel only
   for `h1` and `h2` statements. Never set body copy in the pixel face.
 - **Hairlines and whitespace carry the structure.** No rounded cards, drop shadows,
@@ -76,9 +75,10 @@ For DOCX, PPTX, Google Docs or Slides, take the colors, font fallbacks and logo 
 [references/palette.md](references/palette.md). Let the format's own tooling handle file
 mechanics. This skill supplies the values.
 
-## Keeping it in sync
+## Keeping it in sync (maintainers)
 
-`scripts/sync-from-site.sh <path-to-site-repo>` re-copies the logos and fonts from a checkout
-of the comcreate.io repository, re-exports the PNGs, and prints a `DRIFT` line for every
-token that no longer matches. When it reports drift, update `templates/brand/brand.css` and
-`references/palette.md`, then bump the version in the catalog.
+When the site's design system changes, a maintainer with the site's source runs
+`scripts/sync-from-site.sh <site-source-dir>`. It re-copies the logos and fonts, re-exports
+the PNGs and prints a `DRIFT` line for every token that no longer matches. Fix drift in
+`templates/brand/brand.css` and `references/palette.md`, then bump the skill's version.
+Using the skill never requires the site's source.

@@ -24,6 +24,7 @@ Requires Python 3.11 or newer. The CLI has no runtime dependencies.
 python3 ./bin/comcreate-skills validate
 python3 ./bin/comcreate-skills list
 python3 ./bin/comcreate-skills install --target both --profile core
+python3 ./bin/comcreate-skills install --target claude --profile comcreate-brand  # one skill
 python3 ./bin/comcreate-skills status
 ```
 

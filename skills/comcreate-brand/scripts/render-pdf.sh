@@ -5,6 +5,7 @@
 # Set CHROME=/path/to/chrome if the browser is not found automatically.
 set -euo pipefail
 IN="${1:?usage: render-pdf.sh <doc.html> [out.pdf]}"
+[[ -f "$IN" ]] || { echo "error: input not found: $IN" >&2; exit 1; }
 IN="$(cd "$(dirname "$IN")" && pwd)/$(basename "$IN")"
 OUT="${2:-${IN%.html}.pdf}"
 OUT="$(mkdir -p "$(dirname "$OUT")" && cd "$(dirname "$OUT")" && pwd)/$(basename "$OUT")"
@@ -23,10 +24,17 @@ find_chrome() {
 }
 CHROME_BIN="$(find_chrome)" || { echo "error: Chrome/Chromium not found; set CHROME=/path/to/chrome" >&2; exit 1; }
 
-"$CHROME_BIN" --headless=new --disable-gpu --no-pdf-header-footer \
+URI="$(python3 -c 'import pathlib, sys; print(pathlib.Path(sys.argv[1]).as_uri())' "$IN")"
+LOG="$(mktemp)"
+trap 'rm -f "$LOG"' EXIT
+rm -f "$OUT"
+if ! "$CHROME_BIN" --headless=new --disable-gpu --no-pdf-header-footer \
   --run-all-compositor-stages-before-draw --virtual-time-budget=5000 \
-  --print-to-pdf="$OUT" "file://$IN" 2>/dev/null
-[[ -s "$OUT" ]] || { echo "error: Chrome produced no PDF" >&2; exit 1; }
+  --print-to-pdf="$OUT" "$URI" 2>"$LOG" || [[ ! -s "$OUT" ]]; then
+  echo "error: Chrome produced no PDF. Browser output:" >&2
+  tail -n 20 "$LOG" >&2
+  exit 1
+fi
 echo "pdf:     $OUT"
 
 if command -v pdftoppm >/dev/null 2>&1; then

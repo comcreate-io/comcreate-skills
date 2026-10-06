@@ -19,6 +19,9 @@ Classes are defined in `templates/brand/brand.css`. Every piece below appears in
 | Contents | `ol.index-list` | `01 Title …… 03`. Skip it below about four pages. |
 | Bracket label | `.bracket` | `[ TEXT ]` with cobalt brackets. |
 | Sign-off | `.signoff` | Two signature lines with mono labels. |
+| Divider | `<div class="divider">◇</div>` | Hairline rule with a centered glyph, the site's section divider. |
+| Display line | `.display` | Pixel display type on any element, for one statement outside a heading. |
+| Keep together | `.keep` | Prevents a page break inside the block. |
 
 ## Page setup
 

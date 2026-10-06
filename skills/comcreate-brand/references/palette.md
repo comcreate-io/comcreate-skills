@@ -1,7 +1,7 @@
 # Palette and type outside HTML
 
 Use these for DOCX, PPTX, Google Docs, Google Slides or design tools. The values mirror
-the site's `src/lib/styles/tokens.css`; `scripts/sync-from-site.sh` reports drift.
+the comcreate.io design-system tokens; `scripts/sync-from-site.sh` reports drift.
 
 | Role | Hex | Site token |
 |---|---|---|
