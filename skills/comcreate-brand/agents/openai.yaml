@@ -1,0 +1,4 @@
+interface:
+  display_name: "ComCreate Brand"
+  short_description: "ComCreate-branded PDFs and documents in the comcreate.io system"
+  default_prompt: "Use $comcreate-brand to produce a ComCreate-branded PDF for this document."

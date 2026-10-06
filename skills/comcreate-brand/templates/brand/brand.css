@@ -1,0 +1,652 @@
+/* ComCreate print brand layer.
+   Mirrors the comcreate.io design-system tokens (https://comcreate.io/design-system).
+   Maintainers run scripts/sync-from-site.sh after the site's tokens change.
+   Built for Chrome headless print-to-PDF (Chrome 131+ for @page margin boxes). */
+
+@font-face {
+	font-family: 'Geist';
+	src: url('fonts/Geist-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+}
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('fonts/GeistMono-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+}
+@font-face {
+	font-family: 'Geist Pixel';
+	src: url('fonts/GeistPixel-Circle.woff2') format('woff2');
+	font-weight: 400;
+}
+
+:root {
+	/* Foundation (light) */
+	--bg: #f8f7f3;
+	--surface: #f0efe9;
+	--raised: #ffffff;
+	--text: #171714;
+	--text-dim: #5f5f5b; /* rgba(23,23,20,.68) flattened on --bg */
+	--text-faint: #6c6c69; /* rgba(23,23,20,.62) flattened on --bg */
+	--terminal-accent: #2f2f2a;
+	--terminal-dim: #67675f;
+	--terminal-border: #d8d7d0;
+
+	/* Dark zone (cover, closing, dark panels) */
+	--dark-bg: #0c0e13;
+	--dark-surface: #12151c;
+	--dark-raised: #181c24;
+	--dark-text: #f1f3f7;
+	--dark-dim: #a3a5a9;
+	--dark-faint: #75777c;
+	--dark-border: #292e38;
+
+	/* Cobalt: the one decisive accent */
+	--accent: #1f5eff;
+	--accent-bright: #86a4ff;
+
+	/* Semantic: meaning only, never decoration */
+	--color-error: #df202e;
+	--color-warning: #de9300;
+	--color-success: #2d8a4e;
+
+	--font-display: 'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+	--font-body: 'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+	--font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+	--font-pixel: 'Geist Pixel', 'Geist Mono', ui-monospace, monospace;
+
+	--page-w: 8.5in;
+	--page-h: 11in;
+	--gutter: 0.75in;
+}
+
+/* ── Page model ─────────────────────────────────────────────────────────── */
+
+@page {
+	size: letter;
+	margin: 0.8in 0.75in 0.85in;
+	background: var(--bg);
+
+	@top-left {
+		content: '';
+		width: 0.24in;
+		height: 0.24in;
+		vertical-align: bottom;
+		margin-bottom: 0.26in;
+		background: url('logo/mark-ink.svg') no-repeat left bottom / contain;
+	}
+	@bottom-left {
+		content: 'ComCreate';
+		font-family: 'Geist Mono', monospace;
+		font-size: 7pt;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: #6c6c69;
+		vertical-align: top;
+		padding-top: 0.22in;
+	}
+	@bottom-right {
+		content: counter(page, decimal-leading-zero) ' / ' counter(pages, decimal-leading-zero);
+		font-family: 'Geist Mono', monospace;
+		font-size: 7pt;
+		letter-spacing: 0.14em;
+		color: #6c6c69;
+		vertical-align: top;
+		padding-top: 0.22in;
+	}
+}
+
+/* Full-bleed sheets (cover, closing, dividers) carry no running footer. */
+@page sheet {
+	margin: 0;
+	@top-left { content: none; background: none; }
+	@bottom-left { content: none; }
+	@bottom-right { content: none; }
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+html {
+	background: var(--bg);
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-body);
+	font-size: 10pt;
+	line-height: 1.6;
+	color: var(--text);
+	font-feature-settings: 'ss01', 'tnum' 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* For documents meant to be physically printed: plain white stock. */
+html.plain-paper,
+html.plain-paper body {
+	--bg: #ffffff;
+	background: #ffffff;
+}
+
+.sheet {
+	page: sheet;
+	width: var(--page-w);
+	height: var(--page-h);
+	padding: 0.6in var(--gutter);
+	position: relative;
+	overflow: hidden;
+	break-after: page;
+	display: flex;
+	flex-direction: column;
+	background: var(--bg);
+}
+
+.sheet--dark {
+	background: var(--dark-bg);
+	color: var(--dark-text);
+}
+
+.break-before {
+	break-before: page;
+}
+.keep {
+	break-inside: avoid;
+}
+
+/* ── Type ───────────────────────────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	font-weight: 650;
+	color: inherit;
+	break-after: avoid;
+}
+
+/* Signature display: the pixel face. Covers, section titles, one statement per page max. */
+.display,
+h1 {
+	font-family: var(--font-pixel);
+	font-weight: 400;
+	font-size: 54pt;
+	line-height: 0.95;
+	letter-spacing: -0.025em;
+}
+
+h2 {
+	font-family: var(--font-pixel);
+	font-weight: 400;
+	font-size: 28pt;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	margin-bottom: 0.18in;
+}
+
+h3 {
+	font-family: var(--font-display);
+	font-size: 13pt;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	margin: 0.28in 0 0.08in;
+}
+
+h4 {
+	font-family: var(--font-mono);
+	font-size: 7.5pt;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	margin: 0.2in 0 0.06in;
+}
+
+p {
+	margin: 0 0 0.12in;
+	max-width: 68ch;
+}
+
+.lead {
+	font-size: 12.5pt;
+	line-height: 1.5;
+	color: var(--text-dim);
+	max-width: 54ch;
+}
+.sheet--dark .lead {
+	color: var(--dark-dim);
+}
+
+strong {
+	font-weight: 600;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+	text-decoration-thickness: 0.06em;
+}
+
+ul,
+ol {
+	margin: 0 0 0.14in;
+	padding-left: 1.8em;
+	max-width: 68ch;
+}
+li {
+	margin-bottom: 0.04in;
+}
+li::marker {
+	color: var(--text-faint);
+	font-family: var(--font-mono);
+	font-size: 0.85em;
+}
+
+code,
+.mono {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+}
+
+/* ── Mono labels ────────────────────────────────────────────────────────── */
+
+.eyebrow {
+	font-family: var(--font-mono);
+	font-size: 7.5pt;
+	font-weight: 500;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin: 0 0 0.12in;
+}
+.sheet--dark .eyebrow {
+	color: var(--accent-bright);
+}
+
+/* [ TEXT ] bracket label, as .hud-label on the site */
+.bracket {
+	font-family: var(--font-mono);
+	font-size: 7.5pt;
+	font-weight: 500;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+}
+.bracket::before {
+	content: '[ ';
+	color: var(--accent);
+}
+.bracket::after {
+	content: ' ]';
+	color: var(--accent);
+}
+
+.tag {
+	font-family: var(--font-mono);
+	font-size: 7pt;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent);
+	white-space: nowrap;
+}
+.tag--muted {
+	color: var(--text-faint);
+}
+
+/* ── Meta row (top of cover / sheets): COMCREATE / DOC · CENTER · DATE ──── */
+
+.meta-row {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	gap: 0.2in;
+	font-family: var(--font-mono);
+	font-size: 7pt;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	padding-bottom: 0.14in;
+	border-bottom: 0.75pt solid var(--terminal-border);
+}
+.meta-row > :last-child {
+	text-align: right;
+}
+.sheet--dark .meta-row {
+	color: var(--dark-dim);
+	border-color: var(--dark-border);
+}
+
+/* ── Cover ──────────────────────────────────────────────────────────────── */
+
+.cover__body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding-bottom: 0.55in;
+}
+.cover__title {
+	margin: 0 0 0.3in;
+	max-width: 6.2in;
+}
+.cover__foot {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding-top: 0.16in;
+	border-top: 0.75pt solid var(--dark-border);
+	font-family: var(--font-mono);
+	font-size: 7pt;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--dark-dim);
+}
+.sheet:not(.sheet--dark) .cover__foot {
+	border-color: var(--terminal-border);
+	color: var(--text-dim);
+}
+.cover__wordmark {
+	height: 0.17in;
+	width: auto;
+	display: block;
+}
+
+/* Registration frame around the C mark (hairline box + corner index, no crosshairs) */
+.reg-frame {
+	position: absolute;
+	width: 2.1in;
+	height: 2.1in;
+	border: 0.75pt solid var(--dark-border);
+	display: grid;
+	place-items: center;
+}
+.reg-frame img {
+	width: 1in;
+	position: relative;
+	z-index: 1;
+}
+.reg-frame__index {
+	position: absolute;
+	top: 0.1in;
+	left: 0.12in;
+	font-family: var(--font-mono);
+	font-size: 6.5pt;
+	letter-spacing: 0.12em;
+	color: var(--dark-faint);
+}
+.sheet:not(.sheet--dark) .reg-frame {
+	border-color: var(--terminal-border);
+}
+
+/* ── Section head: 00 index + eyebrow + pixel title ─────────────────────── */
+
+.section {
+	margin-bottom: 0.4in;
+}
+.section-head {
+	display: grid;
+	grid-template-columns: 0.55in 1fr;
+	align-items: start;
+	margin-bottom: 0.22in;
+	break-after: avoid;
+}
+.section-head__index {
+	font-family: var(--font-mono);
+	font-size: 7.5pt;
+	color: var(--text-faint);
+	padding-top: 0.02in;
+}
+
+/* ── Ledger rows (the site's signature list) ────────────────────────────── */
+
+.ledger {
+	border-top: 1pt solid var(--text);
+	margin: 0.1in 0 0.3in;
+}
+.ledger__row {
+	display: grid;
+	grid-template-columns: 1.7in 1fr auto;
+	gap: 0.25in;
+	align-items: baseline;
+	padding: 0.16in 0;
+	border-bottom: 0.75pt solid var(--terminal-border);
+	break-inside: avoid;
+}
+.ledger__title {
+	font-size: 12pt;
+	font-weight: 650;
+	letter-spacing: -0.02em;
+}
+.ledger__desc {
+	color: var(--text-dim);
+}
+
+/* Index list: 01 Title ................ page */
+.index-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border-top: 1pt solid var(--text);
+	max-width: none;
+}
+.index-list li {
+	display: grid;
+	grid-template-columns: 0.55in 1fr auto;
+	padding: 0.11in 0;
+	border-bottom: 0.75pt solid var(--terminal-border);
+	margin: 0;
+}
+.index-list .n,
+.index-list .p {
+	font-family: var(--font-mono);
+	font-size: 8pt;
+	color: var(--text-faint);
+}
+
+/* ── Rule row: THE RULE  sentence  ACTION ───────────────────────────────── */
+
+.rule-row {
+	display: grid;
+	grid-template-columns: 0.9in 1fr;
+	gap: 0.2in;
+	align-items: baseline;
+	padding: 0.16in 0;
+	border-top: 0.75pt solid var(--terminal-border);
+	border-bottom: 0.75pt solid var(--terminal-border);
+	margin: 0.2in 0;
+	break-inside: avoid;
+}
+.rule-row p {
+	margin: 0;
+	font-size: 11pt;
+}
+
+/* ── Spec-sheet stat strip ──────────────────────────────────────────────── */
+
+.stats {
+	display: grid;
+	grid-template-columns: repeat(var(--cols, 3), 1fr);
+	border-top: 1pt solid var(--text);
+	border-bottom: 0.75pt solid var(--terminal-border);
+	margin: 0.15in 0 0.3in;
+	break-inside: avoid;
+}
+.stat {
+	padding: 0.16in 0.18in 0.18in 0;
+}
+.stat + .stat {
+	border-left: 0.75pt solid var(--terminal-border);
+	padding-left: 0.18in;
+}
+.stat__value {
+	font-family: var(--font-display);
+	font-size: 26pt;
+	font-weight: 600;
+	letter-spacing: -0.04em;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+}
+.stat__label {
+	font-family: var(--font-mono);
+	font-size: 7pt;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	margin-top: 0.08in;
+}
+.stat__note {
+	font-size: 8pt;
+	color: var(--text-faint);
+	margin-top: 0.04in;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0.1in 0 0.3in;
+	font-size: 9pt;
+	font-variant-numeric: tabular-nums;
+}
+thead th {
+	font-family: var(--font-mono);
+	font-size: 7pt;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	text-align: left;
+	padding: 0 0.12in 0.08in 0;
+	border-bottom: 1pt solid var(--text);
+}
+tbody td {
+	padding: 0.09in 0.12in 0.09in 0;
+	border-bottom: 0.75pt solid var(--terminal-border);
+	vertical-align: top;
+}
+tr {
+	break-inside: avoid;
+}
+td.num,
+th.num {
+	text-align: right;
+	padding-right: 0;
+}
+tfoot td {
+	padding: 0.1in 0.12in 0 0;
+	font-weight: 650;
+}
+
+/* ── Panels ─────────────────────────────────────────────────────────────── */
+
+/* Recessed note: surface fill, hairline, no shadow, no rounded "card" look */
+.note {
+	background: var(--surface);
+	border: 0.75pt solid var(--terminal-border);
+	padding: 0.18in 0.22in;
+	margin: 0.15in 0 0.25in;
+	break-inside: avoid;
+}
+.note > :last-child {
+	margin-bottom: 0;
+}
+
+/* Decisive cobalt field: the ask, the price, the decision. One per document, two at most. */
+.field-cobalt {
+	background: var(--accent);
+	color: #ffffff;
+	padding: 0.28in 0.3in;
+	margin: 0.2in 0 0.3in;
+	break-inside: avoid;
+}
+.field-cobalt .eyebrow,
+.field-cobalt .tag {
+	color: rgba(255, 255, 255, 0.78);
+}
+.field-cobalt > :last-child {
+	margin-bottom: 0;
+}
+
+/* Dark panel inside a light page */
+.panel-dark {
+	background: var(--dark-bg);
+	color: var(--dark-text);
+	padding: 0.28in 0.3in;
+	margin: 0.2in 0 0.3in;
+	break-inside: avoid;
+}
+.panel-dark .eyebrow {
+	color: var(--accent-bright);
+}
+.panel-dark p {
+	color: var(--dark-dim);
+}
+
+/* Terminal / code specimen */
+pre {
+	font-family: var(--font-mono);
+	font-size: 8pt;
+	line-height: 1.5;
+	background: var(--dark-bg);
+	color: var(--dark-text);
+	padding: 0.18in 0.22in;
+	margin: 0.12in 0 0.25in;
+	white-space: pre-wrap;
+	break-inside: avoid;
+}
+pre .prompt {
+	color: var(--accent-bright);
+}
+pre .dim {
+	color: var(--dark-faint);
+}
+
+/* ◇ divider (site Divider glyph) */
+.divider {
+	display: flex;
+	align-items: center;
+	gap: 0.12in;
+	margin: 0.3in 0;
+	color: var(--text-faint);
+	font-family: var(--font-mono);
+	font-size: 8pt;
+}
+.divider::before,
+.divider::after {
+	content: '';
+	flex: 1;
+	height: 0.75pt;
+	background: var(--terminal-border);
+}
+
+/* Two-column helper */
+.cols {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.35in;
+}
+
+/* Signature / sign-off block */
+.signoff {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.4in;
+	margin-top: 0.3in;
+	break-inside: avoid;
+}
+.signoff__line {
+	border-bottom: 0.75pt solid var(--text);
+	height: 0.45in;
+}
+.signoff__label {
+	font-family: var(--font-mono);
+	font-size: 7pt;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	margin-top: 0.06in;
+}

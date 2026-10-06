@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{Document title}} · ComCreate</title>
+<link rel="stylesheet" href="brand/brand.css">
+<style>
+	/* Per-document running footer label. Keep it short: "ComCreate · <doc>" */
+	@page {
+		@bottom-left { content: 'ComCreate · {{Short doc name}}'; }
+	}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER (full-bleed dark sheet) ═════════════════════════════════════ -->
+<section class="sheet sheet--dark">
+	<div class="meta-row">
+		<span>ComCreate / {{Doc type}}</span>
+		<span>{{Prepared for Client}}</span>
+		<span>{{2026.10.06}}</span>
+	</div>
+
+	<div class="cover__body">
+		<p class="eyebrow">{{Eyebrow: what this document is}}</p>
+		<h1 class="cover__title">{{Short, plain title.}}</h1>
+		<p class="lead">{{One or two sentences that say what the reader gets from this document. Grounded, specific, no hype.}}</p>
+	</div>
+
+	<div class="reg-frame" style="right: 0.75in; top: 1.35in;">
+		<span class="reg-frame__index">CC / 26</span>
+		<img src="brand/logo/mark-reverse.svg" alt="">
+	</div>
+
+	<div class="cover__foot">
+		<img class="cover__wordmark" src="brand/logo/wordmark-reverse.svg" alt="ComCreate">
+		<span>{{Confidential · v1}}</span>
+	</div>
+</section>
+
+<!-- ═══ CONTENTS (optional, drop for docs under ~4 pages) ═════════════════ -->
+<section class="section">
+	<div class="section-head">
+		<span class="section-head__index">00</span>
+		<div>
+			<p class="eyebrow">Contents</p>
+			<h2>{{What's inside.}}</h2>
+		</div>
+	</div>
+	<ol class="index-list">
+		<li><span class="n">01</span><span>{{Context}}</span><span class="p">03</span></li>
+		<li><span class="n">02</span><span>{{Scope}}</span><span class="p">04</span></li>
+		<li><span class="n">03</span><span>{{Investment}}</span><span class="p">05</span></li>
+		<li><span class="n">04</span><span>{{Next steps}}</span><span class="p">06</span></li>
+	</ol>
+</section>
+
+<!-- ═══ 01 · LEDGER SECTION ═══════════════════════════════════════════════ -->
+<section class="section break-before">
+	<div class="section-head">
+		<span class="section-head__index">01</span>
+		<div>
+			<p class="eyebrow">{{Context}}</p>
+			<h2>{{Section statement.}}</h2>
+		</div>
+	</div>
+
+	<p class="lead">{{Lead paragraph. One idea.}}</p>
+	<p>{{Body copy. Geist 10pt, 68ch measure. Ground every claim in the client's real content or ComCreate's documented work.}}</p>
+
+	<div class="ledger">
+		<div class="ledger__row">
+			<span class="ledger__title">{{Item}}</span>
+			<span class="ledger__desc">{{One-line description.}}</span>
+			<span class="tag">{{Status}}</span>
+		</div>
+		<div class="ledger__row">
+			<span class="ledger__title">{{Item}}</span>
+			<span class="ledger__desc">{{One-line description.}}</span>
+			<span class="tag tag--muted">{{Status}}</span>
+		</div>
+	</div>
+
+	<div class="rule-row">
+		<span class="tag">The rule</span>
+		<p>{{The one sentence the reader should remember from this section.}}</p>
+	</div>
+</section>
+
+<!-- ═══ 02 · TABLE SECTION ════════════════════════════════════════════════ -->
+<section class="section break-before">
+	<div class="section-head">
+		<span class="section-head__index">02</span>
+		<div>
+			<p class="eyebrow">{{Scope}}</p>
+			<h2>{{Section statement.}}</h2>
+		</div>
+	</div>
+
+	<table>
+		<thead>
+			<tr><th>{{Phase}}</th><th>{{Deliverable}}</th><th class="num">{{Weeks}}</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>{{01 Discovery}}</td><td>{{What ships}}</td><td class="num">{{1–2}}</td></tr>
+			<tr><td>{{02 Build}}</td><td>{{What ships}}</td><td class="num">{{3–6}}</td></tr>
+		</tbody>
+	</table>
+
+	<div class="note">
+		<h4>{{Assumptions}}</h4>
+		<p>{{Anything the scope depends on.}}</p>
+	</div>
+</section>
+
+<!-- ═══ 03 · STATS + DECISIVE COBALT FIELD ════════════════════════════════ -->
+<section class="section break-before">
+	<div class="section-head">
+		<span class="section-head__index">03</span>
+		<div>
+			<p class="eyebrow">{{Investment}}</p>
+			<h2>{{Section statement.}}</h2>
+		</div>
+	</div>
+
+	<div class="stats" style="--cols: 3">
+		<div class="stat"><div class="stat__value">{{00}}</div><div class="stat__label">{{Label}}</div><div class="stat__note">{{Source / timeframe}}</div></div>
+		<div class="stat"><div class="stat__value">{{00}}</div><div class="stat__label">{{Label}}</div><div class="stat__note">{{Source / timeframe}}</div></div>
+		<div class="stat"><div class="stat__value">{{00}}</div><div class="stat__label">{{Label}}</div><div class="stat__note">{{Source / timeframe}}</div></div>
+	</div>
+
+	<div class="field-cobalt">
+		<p class="eyebrow">{{The ask}}</p>
+		<p style="font-size: 16pt; line-height: 1.3; letter-spacing: -0.02em; max-width: none;">{{The single decision or number this document exists for.}}</p>
+	</div>
+</section>
+
+<!-- ═══ 04 · SIGN-OFF ═════════════════════════════════════════════════════ -->
+<section class="section break-before">
+	<div class="section-head">
+		<span class="section-head__index">04</span>
+		<div>
+			<p class="eyebrow">{{Next steps}}</p>
+			<h2>{{Section statement.}}</h2>
+		</div>
+	</div>
+	<ol>
+		<li>{{Step}}</li>
+		<li>{{Step}}</li>
+	</ol>
+	<div class="signoff">
+		<div><div class="signoff__line"></div><div class="signoff__label">{{Client}} · Name / Date</div></div>
+		<div><div class="signoff__line"></div><div class="signoff__label">ComCreate · Name / Date</div></div>
+	</div>
+</section>
+
+<!-- ═══ CLOSING (full-bleed dark sheet) ═══════════════════════════════════ -->
+<section class="sheet sheet--dark" style="break-after: auto;">
+	<div class="meta-row">
+		<span>ComCreate</span>
+		<span></span>
+		<span>comcreate.io</span>
+	</div>
+	<div class="cover__body">
+		<p class="eyebrow">Contact</p>
+		<h1 class="cover__title" style="font-size: 40pt;">{{Closing line.}}</h1>
+		<p class="lead">hello@comcreate.io<br>comcreate.io</p>
+	</div>
+	<div class="cover__foot">
+		<img class="cover__wordmark" src="brand/logo/wordmark-reverse.svg" alt="ComCreate">
+		<span>San Diego, California</span>
+	</div>
+</section>
+
+</body>
+</html>

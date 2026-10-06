@@ -116,6 +116,25 @@
       "manualOnly": false
     },
     {
+      "name": "comcreate-brand",
+      "version": "1.0.0",
+      "status": "core",
+      "category": "marketing",
+      "path": "skills/comcreate-brand",
+      "maintainers": ["@cartermccann"],
+      "license": "Apache-2.0 AND OFL-1.1",
+      "provenance": {
+        "kind": "original",
+        "summary": "ComCreate-authored print layer mirroring the comcreate.io design-system tokens. Bundles Geist fonts under OFL-1.1 and ComCreate's own marks; trademark rights are not licensed (see NOTICE.md)."
+      },
+      "runtimes": ["codex", "claude-code"],
+      "dependencies": {
+        "commands": ["chromium", "pdftoppm", "pdffonts", "python3"],
+        "tools": []
+      },
+      "manualOnly": false
+    },
+    {
       "name": "no-ai-slop",
       "version": "0.0.0",
       "status": "incubator",

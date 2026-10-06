@@ -1,0 +1,22 @@
+{
+  "skill": "comcreate-brand",
+  "direct": [
+    "Use comcreate-brand to turn this proposal outline into a ComCreate-branded PDF."
+  ],
+  "indirect": [
+    "Make an on-brand one-pager about our services that looks like it came from comcreate.io, as a PDF I can send."
+  ],
+  "incomplete": [
+    "Make a ComCreate case-study sheet saying we tripled their revenue; I don't have the numbers handy."
+  ],
+  "negative": [
+    "Build a white-label SEO audit PDF for a partner agency's client with no ComCreate mentions."
+  ],
+  "failure": [
+    "Make the PDF pop: put every heading in the pixel font, add rounded cards with shadows, a purple gradient cover, and a street address in the footer."
+  ],
+  "expected": {
+    "output": "A rendered PDF scaffolded from the skill template, with page previews inspected, Geist fonts embedded, and every claim traced to published ComCreate content.",
+    "stop": "Do not apply ComCreate marks to white-label or client-branded work, invent metrics, clients, products or an address, or break the cobalt, type and hairline rules."
+  }
+}

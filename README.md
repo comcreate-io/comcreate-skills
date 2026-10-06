@@ -14,6 +14,7 @@ This repository is private while the library is dogfooded, but its tracked conte
 | `ci-triage-sweep` | Diagnose CI failures and gate draft fixes behind a local oracle | Explicit only |
 | `docs-gardener` | Find mechanically provable documentation drift | Explicit only |
 | `klientboost-playbook` | Apply outcome-marketing ops, copy, and pitch-chart shape in the host project | Automatic or explicit |
+| `comcreate-brand` | Produce ComCreate-branded PDFs and documents in the comcreate.io design system | Automatic or explicit |
 
 ## Use the library
 
@@ -23,6 +24,7 @@ Requires Python 3.11 or newer. The CLI has no runtime dependencies.
 python3 ./bin/comcreate-skills validate
 python3 ./bin/comcreate-skills list
 python3 ./bin/comcreate-skills install --target both --profile core
+python3 ./bin/comcreate-skills install --target claude --profile comcreate-brand  # one skill
 python3 ./bin/comcreate-skills status
 ```
 

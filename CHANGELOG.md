@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added `comcreate-brand`, ComCreate's print brand layer: a document template, brand CSS, Geist fonts and logos, a headless-Chrome PDF renderer with page previews and a font check, and a drift check against the site's tokens.
 - Replaced the Node.js CLI with a stdlib-only Python 3.11+ implementation. Commands and installer behavior are unchanged.
 - Added `klientboost-playbook`, a portable outcome-marketing operating playbook that binds copy, pages, and pitch-chart shape to the host project.
 

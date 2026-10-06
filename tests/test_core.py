@@ -140,7 +140,7 @@ class CoreTests(unittest.TestCase):
                 "mode": "copy",
             }
         )
-        self.assertEqual(len(records), 12)
+        self.assertEqual(len(records), 14)
 
         with open(
             os.path.join(home, ".claude", "skills", "self-improvement-loop", "SKILL.md"),
@@ -158,11 +158,11 @@ class CoreTests(unittest.TestCase):
 
         self.assertEqual(
             [entry["state"] for entry in status({"home": home})],
-            ["current"] * 12,
+            ["current"] * 14,
         )
 
         removed = uninstall({"home": home, "profile": "core"})
-        self.assertEqual(len(removed), 12)
+        self.assertEqual(len(removed), 14)
         self.assertFalse(
             path_exists(os.path.join(home, ".agents", "skills", "design-product-flows"))
         )
