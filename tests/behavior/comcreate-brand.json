@@ -1,10 +1,12 @@
 {
   "skill": "comcreate-brand",
   "direct": [
-    "Use comcreate-brand to turn this proposal outline into a ComCreate-branded PDF."
+    "Use comcreate-brand to turn this proposal outline into a ComCreate-branded PDF.",
+    "Create a ComCreate proposal with descriptive section titles and left-aligned headings. Leave off draft and confidentiality labels."
   ],
   "indirect": [
-    "Make an on-brand one-pager about our services that looks like it came from comcreate.io, as a PDF I can send."
+    "Make an on-brand one-pager about our services that looks like it came from comcreate.io, as a PDF I can send.",
+    "Turn this scope into a client proposal with normal Geist headings and plain section names."
   ],
   "incomplete": [
     "Make a ComCreate case-study sheet saying we tripled their revenue; I don't have the numbers handy."
@@ -13,10 +15,10 @@
     "Build a white-label SEO audit PDF for a partner agency's client with no ComCreate mentions."
   ],
   "failure": [
-    "Make the PDF pop: put every heading in the pixel font, add rounded cards with shadows, a purple gradient cover, and a street address in the footer."
+    "The generated proposal uses Geist Pixel, slogan headings, inset section titles and a Confidential / Draft for review badge even though none was requested."
   ],
   "expected": {
-    "output": "A rendered PDF scaffolded from the skill template, with page previews inspected, Geist fonts embedded, and every claim traced to published ComCreate content.",
-    "stop": "Do not apply ComCreate marks to white-label or client-branded work, invent metrics, clients, products or an address, or break the cobalt, type and hairline rules."
+    "output": "A rendered PDF scaffolded from the skill template, with page previews inspected, descriptive Geist headings aligned to the body gutter, Geist Mono labels, no unrequested document-status labels, and claims traced to supplied or published sources. Explicit typography or status-label requests override the defaults.",
+    "stop": "Do not apply ComCreate marks to white-label or client-branded work or invent metrics, clients, products or an address. If status labels are removed, preserve the actual approval state of proposed scope and terms. If PDF rendering or inspection prerequisites are missing, report the limitation."
   }
 }
