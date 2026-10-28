@@ -22,10 +22,11 @@ the comcreate.io design-system tokens; `scripts/sync-from-site.sh` reports drift
 
 ## Fonts
 
-- **Geist** (reading) and **Geist Mono** (labels, metadata) are on Google Fonts, so Google
+- **Geist** (headings and reading) and **Geist Mono** (labels, metadata) are on Google Fonts, so Google
   Docs and Slides have them. In DOCX/PPTX, embed them or fall back to Arial and Consolas.
-- **Geist Pixel** (signature display) is not on Google Fonts. In Office formats, set display
-  titles in Geist 600 with tight tracking, or place the title as a rendered image.
+- Set display titles in Geist 500 with tight tracking, left-aligned with body copy.
+- **Geist Pixel** is bundled for explicitly requested heading treatments only. It is not a
+  document default and is not on Google Fonts.
 - All Geist faces are SIL OFL 1.1 (`templates/brand/fonts/GEIST-OFL-LICENSE.txt`).
 
 ## Logo files

@@ -1,4 +1,4 @@
 interface:
   display_name: "ComCreate Brand"
-  short_description: "ComCreate-branded PDFs and documents in the comcreate.io system"
+  short_description: "ComCreate documents with Geist headings and direct, left-aligned copy"
   default_prompt: "Use $comcreate-brand to produce a ComCreate-branded PDF for this document."

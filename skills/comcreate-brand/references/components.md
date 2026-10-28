@@ -4,10 +4,10 @@ Classes are defined in `templates/brand/brand.css`. Every piece below appears in
 
 | Piece | Markup | Notes |
 |---|---|---|
-| Cover / closing | `<section class="sheet sheet--dark">` | Full bleed, no running header or footer. `meta-row` on top, `cover__body` (eyebrow, pixel `h1`, `.lead`), `cover__foot` with the reverse wordmark. |
+| Cover / closing | `<section class="sheet sheet--dark">` | Full bleed, no running header or footer. `meta-row` on top, `cover__body` (eyebrow, Geist `h1`, `.lead`), `cover__foot` with the reverse wordmark. No status or confidentiality label by default. |
 | C-mark frame | `.reg-frame` + `logo/mark-reverse.svg` | Hairline box with a `CC / 26` corner index. Cover only, once per document. |
 | Flowing content | `<section class="section">` | Uses `@page` margins. The running header carries the ink C mark; the running footer reads `ComCreate · <doc>` and `NN / TT`. Set the footer label in the document's `<style>`. |
-| Section head | `.section-head` → `__index` `01` + `.eyebrow` + `h2` | Two-digit indexes from `00`. Add `.break-before` to start a section on a new page. |
+| Section head | `.section-head` → `__index` `01` + `.eyebrow` + `h2` | Index and eyebrow above a descriptive Geist title, aligned with the body gutter. Two-digit indexes from `00`. Add `.break-before` to start a section on a new page. |
 | Ledger | `.ledger > .ledger__row` (title / desc / `.tag`) | The site's signature list: ink top rule, hairline rows, cobalt mono tag. Prefer it to cards. |
 | Rule row | `.rule-row` (`.tag` + `p`) | "THE RULE" plus one sentence. One takeaway per section. |
 | Stat strip | `.stats` (`--cols`) `> .stat` | Every number needs a `.stat__note` with its source and timeframe. |
@@ -20,7 +20,7 @@ Classes are defined in `templates/brand/brand.css`. Every piece below appears in
 | Bracket label | `.bracket` | `[ TEXT ]` with cobalt brackets. |
 | Sign-off | `.signoff` | Two signature lines with mono labels. |
 | Divider | `<div class="divider">◇</div>` | Hairline rule with a centered glyph, the site's section divider. |
-| Display line | `.display` | Pixel display type on any element, for one statement outside a heading. |
+| Display line | `.display` | Large Geist type. Prefer descriptive headings over slogan-style statements. |
 | Keep together | `.keep` | Prevents a page break inside the block. |
 
 ## Page setup

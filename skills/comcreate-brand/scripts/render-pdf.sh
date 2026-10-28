@@ -47,7 +47,7 @@ else
   echo "warning: pdftoppm (poppler) not found; previews skipped, inspect the PDF directly" >&2
 fi
 
-# Font check: Geist faces must be embedded; any other family is a fallback.
+# Font check: expect Geist and Geist Mono by default. Pixel is explicit opt-in only.
 if command -v pdffonts >/dev/null 2>&1; then
   echo "fonts:   $(pdffonts "$OUT" | awk 'NR>2{print $1}' | sed 's/^[A-Z]*+//' | sort -u | tr '\n' ' ')"
 else

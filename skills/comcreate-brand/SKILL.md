@@ -1,13 +1,13 @@
 ---
 name: comcreate-brand
-description: ComCreate's own brand system for documents. Produces PDFs, proposals, one-pagers, capability overviews, reports, SOWs and case-study sheets that match comcreate.io (warm paper, near-black ink, decisive cobalt, Geist, Geist Mono and Geist Pixel type, hairline ledgers, mono labels), and supplies the palette and logos for DOCX, PPTX and Google Docs. Use when asked for a ComCreate-branded or on-brand document, PDF or deck styling. Do not use for white-label or client-branded work.
+description: ComCreate's own brand system for documents. Produces PDFs, proposals, one-pagers, capability overviews, reports, SOWs and case-study sheets using the comcreate.io palette and logos, Geist headings, Geist Mono labels, left-aligned layouts and direct copy. Also supplies brand assets for DOCX, PPTX and Google Docs. Use when asked for a ComCreate-branded or on-brand document, PDF or deck styling. Do not use for white-label or client-branded work.
 ---
 
 # ComCreate brand (documents)
 
-This skill packages the comcreate.io design system for print. The public reference is
-https://comcreate.io/design-system: its tokens, type roles and usage rules are what this
-skill mirrors, and its layout is what the print pages are modeled on.
+This skill adapts the comcreate.io design system for documents. The public reference is
+https://comcreate.io/design-system for the palette and assets. Document defaults are
+Geist headings, direct section titles and left-aligned content, as specified below.
 
 All script paths below are relative to this skill's directory.
 
@@ -30,8 +30,9 @@ Website UI work inside the comcreate.io repository uses the repository's tokens 
 3. **Render.** `scripts/render-pdf.sh <name>.html` prints `<name>.pdf` with headless Chrome
    or Chromium. It also writes page previews to `<name>-preview/` and lists the embedded fonts.
 4. **Inspect.** Read every preview image. Look for overflow, orphaned headings, empty trailing
-   pages and cover collisions. The font list must show Geist and GeistMono, plus
-   GeistPixel-Circle when display type is used. Any other family means a fallback slipped in.
+   pages and cover collisions. Check that headings and body copy share the left gutter.
+   The default font list must show Geist and GeistMono, with no Geist Pixel or fallback
+   families. GeistPixel-Circle is expected only when explicitly requested.
 5. **Hand off.** Report the PDF path, the page count and what you checked.
 
 Requirements: Chrome or Chromium (set `CHROME=/path/to/chrome` if it is not found).
@@ -44,8 +45,11 @@ the PDF still renders, but you must say the inspection step was skipped.
   blue-black sheets.
 - **Cobalt is decisive, not decorative.** Use it for eyebrows, tags, links and the cobalt
   field (one per document, two at most). Never tint rules, icons or backgrounds with it.
-- **Type roles.** Geist for reading, Geist Mono for labels and metadata, and Geist Pixel only
-  for `h1` and `h2` statements. Never set body copy in the pixel face.
+- **Type roles.** Geist for headings and body copy; Geist Mono for labels and metadata.
+  Geist Pixel is bundled as an optional asset, not a document default. Use it only when
+  explicitly requested, and then only for headings.
+- **Alignment.** Left-align headings and body copy to the same content gutter. Section
+  indexes and eyebrows sit above the heading. Numeric table columns may align right.
 - **Hairlines and whitespace carry the structure.** No rounded cards, drop shadows,
   gradients, left-border accent bars or decorative glyphs. Corners stay square.
 - **Semantic colors** (success, warning, error) carry meaning only.
@@ -58,6 +62,12 @@ the PDF still renders, but you must say the inspection step was skipped.
 
 - Write **ComCreate** with two capital Cs. All-caps appears only where CSS uppercases a mono
   label.
+- Use descriptive headings such as "Project overview", "Deliverables", "Fees and payment"
+  and "Client inputs". Avoid slogans, stacked sentence fragments and repeated contrast
+  formulas in document headings.
+- Omit "Draft for review", "Confidential", review-draft notices and similar document-status
+  labels unless explicitly requested. This does not make proposed scope or terms agreed;
+  keep their actual approval state clear in the relevant section.
 - Don't use em-dashes for pacing. Use periods, commas, colons or parentheses, and `·` inside
   mono labels. En-dashes are fine for ranges such as `weeks 1–2`.
 - Ground every claim. Take company facts, services and case-study numbers from comcreate.io
@@ -82,3 +92,4 @@ When the site's design system changes, a maintainer with the site's source runs
 the PNGs and prints a `DRIFT` line for every token that no longer matches. Fix drift in
 `templates/brand/brand.css` and `references/palette.md`, then bump the skill's version.
 Using the skill never requires the site's source.
+Asset sync does not change these document typography, alignment or copy defaults.
